@@ -1,3 +1,7 @@
+<?php
+$numero = 7;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +10,7 @@
     <title>0376-RA5PR1-GilLopezVictor</title>
 </head>
 <body>
-    <h1> TABLA DE MULTIPLICAR </h1>
+    <h1> TABLA DE MULTIPLICAR DEL <?php echo $numero; ?></h1>
     
 </body>
 </html>
