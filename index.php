@@ -10,7 +10,23 @@ $numero = 7;
     <title>0376-RA5PR1-GilLopezVictor</title>
 </head>
 <body>
-    <h1> TABLA DE MULTIPLICAR DEL <?php echo $numero; ?></h1>
     
+    <h1> TABLA DE MULTIPLICAR DEL <?php echo $numero; ?></h1>
+
+    <?php
+    echo "<table>";
+    echo "<tr><th>Operacion</th><th>Resultado</th></tr>";
+
+    for ($i = 1; $i <= 10; $i++) {
+        $resultado = $numero * $i;
+        echo "<tr>";
+        echo "<td>$numero x $i</td>";
+        echo "<td>$resultado</td>";
+        echo "</tr>";
+    }
+
+    echo "</table>";
+    ?>
+
 </body>
 </html>
