@@ -1,94 +1,111 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>0376-RA5PR1-GilLopezVictor</title>
-    <style>
-        body {
+   <title>0376-RA5PR1-GilLopezVictor</title>
+   <style>
+       body {
            display: flex;
            flex-direction: column;
            align-items: center;
-        }
-
-        h1 {
+       }
+       h1 {
            text-align: center;
            margin-top: 0px;
-        }
-
-        form {
+       }
+       form {
            margin: 40px 0px;
            padding: 15px;
            border: 1px solid black;
            background-color: lightblue;
-        }
-
-        table {
+       }
+       table {
            border-collapse: collapse;
            margin: auto;
-        }
-
-        td {
+       }
+       td {
            border: 1px black;
            padding: 15px;
            text-align: center;
-        }
-
-        th {
+       }
+       th {
            border: 1px solid black;
            padding: 15px;
            background-color: lightblue;
            text-align: center;
-        }
+       }
       
-        tr{
+       tr{
            border: 1px solid black;
-        }
+       }
 
-        tr.par {
+
+       tr.par {
            background-color: lightgray;
-        }
-
-        tr.impar {
+       }
+       tr.impar {
            background-color: white;
-        }
-
-    </style>
+       }
+   </style>
 </head>
 <body>
 
+
+<!-- Formulario que envía el número por GET al mismo archivo -->
 <form method="get" action="index.php">
-    <label>Introduce un número:</label>
-    <input type="number" name="numero" min="1" max="12">
-    <button type="submit">Generar tabla</button>
+   <label>Introduce un número (1-12):</label>
+   <!-- Solo acepta del 1 al 12 -->
+   <input type="number" name="numero" min="1" max="12">
+   <button type="submit">Generar tabla</button>
 </form>
 
+
 <?php
+// Si el usuario ha enviado el formulario
 if (isset($_GET['numero'])) {
 
-    $numero = (int)$_GET['numero'];
 
-    echo "<h1>TABLA DE MULTIPLICAR DEL $numero</h1>";
-    echo "<table>";
-    echo "<tr><th>Operacion</th><th>Resultado</th></tr>";
+   // Recoge el número enviado y lo convierte a entero
+   $numero = (int)$_GET['numero'];
 
-    for ($i = 1; $i <= 10; $i++) {
 
-        if ($i % 2 == 0) {
-            $clase = "par";
-        } else {
-            $clase = "impar";
-        }
+   // Muestra el título con el número elegido
+   echo "<h1>TABLA DE MULTIPLICAR DEL $numero</h1>";
 
-        $resultado = $numero * $i;
 
-        echo "<tr class='$clase'>";
-        echo "<td>$numero x $i</td>";
-        echo "<td>$resultado</td>";
-        echo "</tr>";
-    }
+   // Inicia la tabla HTML
+   echo "<table>";
+   echo "<tr><th>Operacion</th><th>Resultado</th></tr>";
 
-    echo "</table>";
+
+   // Bucle del 1 al 10
+   for ($i = 1; $i <= 10; $i++) {
+
+
+       // Asigna una clase CSS según si la fila es par o impar
+       if ($i % 2 == 0) {
+           $clase = "par";
+       } else {
+           $clase = "impar";
+       }
+
+
+       // Multiplica
+       $resultado = $numero * $i;
+
+
+       // Imprime la fila con su clase CSS
+       echo "<tr class='$clase'>";
+       echo "<td>$numero x $i</td>";
+       echo "<td>$resultado</td>";
+       echo "</tr>";
+   }
+
+
+   // Cierra la tabla
+   echo "</table>";
 }
 ?>
+
 
 </body>
 </html>
